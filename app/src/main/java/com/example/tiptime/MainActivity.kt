@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AlertDialogLayout
 import com.example.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
 import java.util.stream.DoubleStream.builder
+import java.util.stream.IntStream.builder
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,9 +18,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //val stringInTextField = binding.costOfService.text
+
         binding.calculateButton.setOnClickListener {
-            calculateTip()
+            val stringInTextField = binding.costOfService.text
+            if(stringInTextField.isNotEmpty()){
+                val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+                builder.setTitle("Necessário informar o custo do serviço")
+                builder.setPositiveButton("OK, entendi!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
+                builder.show()
+            }
+            else {
+                calculateTip()
+            }
         }
     }
 
@@ -27,6 +37,7 @@ class MainActivity : AppCompatActivity() {
     private fun calculateTip() {
 
         val stringInTextField = binding.costOfService.text.toString()
+
         val cost = stringInTextField.toDouble()
         val selectedId = binding.tipOptions.checkedRadioButtonId
         val tipPercentage = when (selectedId){

@@ -94,17 +94,19 @@
 
         <Switch
             android:id="@+id/round_up_switch"
-            android:layout_width="410dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:checked="true"
             android:text="@string/round_up_tip"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <Switch
             android:id="@+id/round_down_switch"
-            android:layout_width="410dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
+            android:layout_marginLeft="8dp"
             android:checked="true"
             android:text="@string/round_down_tip"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -123,14 +125,14 @@
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="375dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginBottom="300dp"
-        app:cardBackgroundColor="#f0f0f0f0"
         android:translationZ="10dp"
+        app:cardBackgroundColor="#f0f0f0f0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/calculate_button"
+        app:layout_constraintStart_toStartOf="@+id/calculate_button"
         app:layout_constraintTop_toBottomOf="@+id/calculate_button">
 
         <TextView
