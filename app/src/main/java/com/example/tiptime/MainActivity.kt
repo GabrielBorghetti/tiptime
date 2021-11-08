@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
             val stringInTextField = binding.costOfService.text
             if(stringInTextField.isEmpty()){
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-                builder.setTitle("Necessário informar o custo do serviço")
-                builder.setPositiveButton("OK, entendi!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
+                builder.setMessage("Cost of Service is needed")
+                builder.setPositiveButton("ok, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
                 builder.show()
             }
             else {
@@ -53,8 +53,8 @@ class MainActivity : AppCompatActivity() {
         }
         if(roundDown && roundUp){
             val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-            builder.setTitle("Pode selecionar apenas uma opção de aredondar")
-            builder.setPositiveButton("OK, entendi!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
+            builder.setMessage("Can only choose one option to round it")
+            builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
             builder.show()
         }
         NumberFormat.getCurrencyInstance()
