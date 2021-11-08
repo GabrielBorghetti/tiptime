@@ -1,14 +1,10 @@
 package com.example.tiptime
 
-import android.app.AlertDialog
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.widget.AlertDialogLayout
 import com.example.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
-import java.util.stream.DoubleStream.builder
-import java.util.stream.IntStream.builder
 
 class MainActivity : AppCompatActivity() {
 
