@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.calculateButton.setOnClickListener {
             val stringInTextField = binding.costOfService.text
-            if(stringInTextField.isNotEmpty()){
+            if(stringInTextField.isEmpty()){
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                 builder.setTitle("Necessário informar o custo do serviço")
                 builder.setPositiveButton("OK, entendi!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
