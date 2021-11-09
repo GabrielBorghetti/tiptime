@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.tiptime.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -14,7 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.AboutButton.setOnClickListener {
 
+        }
         binding.calculateButton.setOnClickListener {
             val stringInTextField = binding.costOfService.text
             if(stringInTextField.isEmpty()){
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
     private fun calculateTip() {
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             tip = kotlin.math.ceil(tip)
         }
         if (roundDown){
-            tip = kotlin.math.ceil(tip - 1)
+            tip = kotlin.math.floor(tip)
         }
         if(roundDown && roundUp){
             val builder = androidx.appcompat.app.AlertDialog.Builder(this)
@@ -63,5 +67,6 @@ class MainActivity : AppCompatActivity() {
         binding.tipResult.text = getString(R.string.tip_amount_number, formattedTip)
     }
 }
+
 
 
