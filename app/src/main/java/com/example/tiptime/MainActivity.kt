@@ -1,5 +1,6 @@
 package com.example.tiptime
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    @SuppressLint("StringFormatMatches")
     private fun calculateTip() {
 
         val stringInTextField = binding.costOfService.text.toString()
@@ -61,12 +63,19 @@ class MainActivity : AppCompatActivity() {
             builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
             builder.show()
         }
+
         NumberFormat.getCurrencyInstance()
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
-
+        val finalPrice   = tip + cost
+        val costCurrency = NumberFormat.getCurrencyInstance().format(cost)
+        val finalPriceCurrency = NumberFormat.getCurrencyInstance().format(finalPrice)
+        binding.finalPrice.text = getString(R.string.finalPrice, finalPriceCurrency)
+        binding.costOfServiceText.text = getString(R.string.cost_of_service_text, costCurrency)
         binding.tipResult.text = getString(R.string.tip_amount_number, formattedTip)
     }
 }
+
+
 
 
 

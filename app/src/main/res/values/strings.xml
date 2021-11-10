@@ -14,5 +14,7 @@
         <string name="good_18">Good (18%)</string>
         <string name="ok_15">OK (15%)</string>
         <string name="tip_amount_number">Tip Amount: %s</string>
+        <string name="cost_of_service_text">Cost of Service: %s</string>
+        <string name="finalPrice" >Final price: %s</string>
 
 </resources>
