@@ -2,6 +2,7 @@ package com.example.tiptime
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tiptime.databinding.ActivityMainBinding
@@ -16,9 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.AboutButton.setOnClickListener {
 
-        }
         binding.calculateButton.setOnClickListener {
             val stringInTextField = binding.costOfService.text
             if(stringInTextField.isEmpty()){
@@ -31,6 +30,12 @@ class MainActivity : AppCompatActivity() {
                 calculateTip()
             }
         }
+        binding.btAbout.setOnClickListener {
+            val intent = Intent(applicationContext, About::class.java)
+                startActivity(intent)
+        }
+
+
     }
 
 

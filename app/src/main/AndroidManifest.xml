@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TipTime">
         <activity
+            android:name=".About"
+            android:exported="false" />
+        <activity
             android:name=".AboutApp"
             android:exported="false" />
         <activity

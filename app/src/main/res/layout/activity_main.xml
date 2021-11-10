@@ -15,7 +15,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:translationZ="10dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="15dp"
         app:cardBackgroundColor="#f0f0f0f0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
         android:translationZ="10dp"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="15dp"
         app:cardBackgroundColor="#f0f0f0f0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +134,7 @@
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:translationZ="10dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="15dp"
         app:cardBackgroundColor="#f0f0f0f0"
         android:outlineSpotShadowColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
@@ -191,11 +191,11 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/AboutButton"
+            android:id="@+id/bt_About"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="4dp"
+            android:layout_marginLeft="3dp"
             android:layout_marginBottom="6dp"
             app:srcCompat="@android:drawable/ic_menu_info_details" />
 
@@ -223,7 +223,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="43dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="22dp"
             android:text="Save" />
 
     </androidx.cardview.widget.CardView>
