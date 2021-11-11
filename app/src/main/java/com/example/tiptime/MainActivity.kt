@@ -11,7 +11,7 @@ import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 builder.setPositiveButton("ok, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
                 builder.show()
             }
-            if(roundDown && roundUp){
+            else if(roundDown && roundUp){
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                 builder.setMessage("Can only choose one option to round it")
                 builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
@@ -43,11 +43,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
         }
 
-
     }
-
-
-
     @SuppressLint("StringFormatMatches")
     private fun calculateTip() {
 

@@ -10,10 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TipTime">
         <activity
-            android:name=".About"
-            android:exported="false" />
+            android:name=".SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".AboutApp"
+            android:name=".About"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
