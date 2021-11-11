@@ -11,11 +11,10 @@ class About : AppCompatActivity() {
     lateinit var binding: ActivityAboutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+    supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         binding = ActivityAboutBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         binding.btHome.setOnClickListener{
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)

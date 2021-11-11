@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.hide()
+
         binding.calculateButton.setOnClickListener {
             val stringInTextField = binding.costOfService.text
             val roundUp = binding.roundUpSwitch.isChecked
@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity() {
                 builder.setPositiveButton("ok, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
                 builder.show()
             }
-            if(roundDown && roundUp){
+            else if(roundDown && roundUp){
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-                builder.setMessage("Can only choose one option to round it")
+                builder.setMessage("You can only choose one option to round it")
                 builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
                 builder.show()
             }
@@ -43,7 +43,13 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
         }
 
+        binding.SaveTipButton.setOnClickListener{
+            val intent = Intent (applicationContext, SaveTips::class.java)
+                startActivity(intent)
+        }
     }
+
+
     @SuppressLint("StringFormatMatches")
     private fun calculateTip() {
 
@@ -54,7 +60,8 @@ class MainActivity : AppCompatActivity() {
         val tipPercentage = when (selectedId){
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
-            else -> 0.15
+            R.id.option_fifteen_percent -> 0.15
+            else -> 0.05
         }
         var tip = tipPercentage * cost
         val roundUp = binding.roundUpSwitch.isChecked
@@ -72,9 +79,9 @@ class MainActivity : AppCompatActivity() {
         val finalPrice   = tip + cost
         val costCurrency = NumberFormat.getCurrencyInstance().format(cost)
         val finalPriceCurrency = NumberFormat.getCurrencyInstance().format(finalPrice)
-        binding.finalPrice.text = getString(R.string.finalPrice, finalPriceCurrency)
         binding.costOfServiceText.text = getString(R.string.cost_of_service_text, costCurrency)
         binding.tipResult.text = getString(R.string.tip_amount_number, formattedTip)
+        binding.finalPrice.text = getString(R.string.finalPrice, finalPriceCurrency)
     }
 }
 

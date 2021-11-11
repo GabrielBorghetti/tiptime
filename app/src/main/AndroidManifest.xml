@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TipTime">
         <activity
+            android:name=".SaveTips"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>

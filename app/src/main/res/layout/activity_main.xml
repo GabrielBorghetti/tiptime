@@ -102,6 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:checked="false"
+
             android:text="@string/round_up_tip"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
