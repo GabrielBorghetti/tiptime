@@ -20,10 +20,18 @@ class MainActivity : AppCompatActivity() {
 
         binding.calculateButton.setOnClickListener {
             val stringInTextField = binding.costOfService.text
+            val roundUp = binding.roundUpSwitch.isChecked
+            val roundDown = binding.roundDownSwitch.isChecked
             if(stringInTextField.isEmpty()){
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                 builder.setMessage("Cost of Service is needed")
                 builder.setPositiveButton("ok, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
+                builder.show()
+            }
+            if(roundDown && roundUp){
+                val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+                builder.setMessage("Can only choose one option to round it")
+                builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
                 builder.show()
             }
             else {
@@ -61,12 +69,6 @@ class MainActivity : AppCompatActivity() {
         }
         if (roundDown){
             tip = kotlin.math.floor(tip)
-        }
-        if(roundDown && roundUp){
-            val builder = androidx.appcompat.app.AlertDialog.Builder(this)
-            builder.setMessage("Can only choose one option to round it")
-            builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
-            builder.show()
         }
 
         NumberFormat.getCurrencyInstance()

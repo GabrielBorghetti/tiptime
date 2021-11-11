@@ -49,7 +49,6 @@
         android:layout_height="164dp"
         android:layout_marginTop="8dp"
         android:background="#f0f0f0f0"
-        android:checkedButton="@id/option_fifteen_percent"
         android:orientation="vertical"
         android:translationZ="10dp"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
@@ -102,7 +101,7 @@
             android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/round_up_tip"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -112,7 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
             android:layout_marginLeft="8dp"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/round_down_tip"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
     </androidx.cardview.widget.CardView>
