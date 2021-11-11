@@ -20,23 +20,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
+            app:cardBackgroundColor="#D6D7D7"
+            app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:cardCornerRadius="15dp"
-            app:cardBackgroundColor="#D6D7D7"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:text="About"
                 android:textColor="@color/black"
-                android:textSize="30sp"
-                android:text="About" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -44,14 +45,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:padding="10dp"
-                android:textSize="20dp"
-                android:text="This app was created while reading the 'Android Developer' tutorials. But with a few changes that i've made by myself to study" />
+                android:text="This app was created while reading the 'Android Developer' tutorials. But with a few changes that i've made by myself to study"
+                android:textSize="20dp" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:translationZ="10dp"
@@ -85,12 +86,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 app:srcCompat="@android:drawable/ic_menu_revert" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="24dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="24dp"
                 android:text="Home"
 
                 />

@@ -11,13 +11,13 @@ import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
-     lateinit var binding: ActivityMainBinding
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.hide()
         binding.calculateButton.setOnClickListener {
             val stringInTextField = binding.costOfService.text
             val roundUp = binding.roundUpSwitch.isChecked
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 builder.setPositiveButton("ok, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
                 builder.show()
             }
-            else if(roundDown && roundUp){
+            if(roundDown && roundUp){
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                 builder.setMessage("Can only choose one option to round it")
                 builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
