@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -22,19 +23,19 @@ class MainActivity : AppCompatActivity() {
             val stringInTextField = binding.costOfService.text
             val roundUp = binding.roundUpSwitch.isChecked
             val roundDown = binding.roundDownSwitch.isChecked
-            if(stringInTextField.isEmpty()){
+            if (stringInTextField.isEmpty()) {
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                 builder.setMessage("Cost of Service is needed")
-                builder.setPositiveButton("ok, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
+                builder.setPositiveButton("ok, understood!",
+                    { dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton })
                 builder.show()
-            }
-            else if(roundDown && roundUp){
+            } else if (roundDown && roundUp) {
                 val builder = androidx.appcompat.app.AlertDialog.Builder(this)
                 builder.setMessage("You can only choose one option to round it")
-                builder.setPositiveButton("OK, understood!",{ dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton})
+                builder.setPositiveButton("OK, understood!",
+                    { dialogInterface: DialogInterface?, i: Int -> return@setPositiveButton })
                 builder.show()
-            }
-            else {
+            } else {
                 calculateTip()
             }
         }
@@ -42,11 +43,15 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(applicationContext, About::class.java)
                 startActivity(intent)
         }
-
-        binding.SaveTipButton.setOnClickListener{
-            val intent = Intent (applicationContext, SaveTips::class.java)
+        binding.SavedTipsButton.setOnClickListener {
+            val intent = Intent(applicationContext, SaveTips::class.java)
                 startActivity(intent)
         }
+        binding.SaveTipButton.setOnClickListener{
+            val intent = Intent(applicationContext, SaveTips::class.java)
+                startActivity(intent)
+        }
+
     }
 
 
@@ -57,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         val cost = stringInTextField.toDouble()
         val selectedId = binding.tipOptions.checkedRadioButtonId
-        val tipPercentage = when (selectedId){
+        val tipPercentage = when (selectedId) {
             R.id.option_twenty_percent -> 0.20
             R.id.option_eighteen_percent -> 0.18
             R.id.option_fifteen_percent -> 0.15
@@ -67,21 +72,23 @@ class MainActivity : AppCompatActivity() {
         val roundUp = binding.roundUpSwitch.isChecked
         val roundDown = binding.roundDownSwitch.isChecked
 
-        if (roundUp){
+        if (roundUp) {
             tip = kotlin.math.ceil(tip)
         }
-        if (roundDown){
+        if (roundDown) {
             tip = kotlin.math.floor(tip)
         }
 
         NumberFormat.getCurrencyInstance()
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
-        val finalPrice   = tip + cost
+        val finalPrice = tip + cost
         val costCurrency = NumberFormat.getCurrencyInstance().format(cost)
         val finalPriceCurrency = NumberFormat.getCurrencyInstance().format(finalPrice)
         binding.costOfServiceText.text = getString(R.string.cost_of_service_text, costCurrency)
         binding.tipResult.text = getString(R.string.tip_amount_number, formattedTip)
         binding.finalPrice.text = getString(R.string.finalPrice, finalPriceCurrency)
+
+
     }
 }
 
